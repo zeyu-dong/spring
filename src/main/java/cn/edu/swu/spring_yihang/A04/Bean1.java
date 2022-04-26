@@ -23,21 +23,23 @@ public class Bean1 {
         this.bean2 = bean2;
     }
 
+    @Autowired
     private Bean3 bean3;
 
     @Resource
     public void setBean3(Bean3 bean3) {
-        log.debug("@Resource生效");
+        log.debug("@Resource生效:{}", bean3);
         this.bean3 = bean3;
     }
 
 
-//    private String home;
-//    @Autowired
-//    public void setHome(@Value("${JAVA_HOME }") String home) {
-//        log.debug("@Value生效");
-//        this.home = home;
-//    }
+
+    private String home;
+    @Autowired
+    public void setHome(@Value("${JAVA_HOME }") String  home) {
+        log.debug("@Value生效:{}",home);
+        this.home = home;
+    }
 
     @PostConstruct
     public void init(){
