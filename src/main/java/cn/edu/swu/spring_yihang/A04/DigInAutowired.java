@@ -20,8 +20,6 @@ public class DigInAutowired {
         AutowiredAnnotationBeanPostProcessor processor = new AutowiredAnnotationBeanPostProcessor();
         processor.setBeanFactory(factory);
 
-        //调用Injection来进行依赖注入
-
         
 
 
