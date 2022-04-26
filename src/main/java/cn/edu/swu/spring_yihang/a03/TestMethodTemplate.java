@@ -20,7 +20,12 @@ public class TestMethodTemplate {
 
         //变化的抽象成接口
         static interface BeanPostProcessor{
-
+            public void inject();
+            public void inject();
+            public void inject();
+            public void inject();
+            public void inject();
+            public void inject();
         }
     }
 }
