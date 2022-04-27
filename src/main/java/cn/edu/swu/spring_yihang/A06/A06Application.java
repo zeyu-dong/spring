@@ -42,7 +42,7 @@ public class A06Application {
         GenericApplicationContext context = new GenericApplicationContext();
 
 //        context.registerBean("myBean",MyBean.class);
-        context.registerBean("myConfig1", MyConfig1.class);
+        context.registerBean("myConfig2", MyConfig2.class);
 
         //解析@Autowired @PostConstruct
         context.registerBean(AutowiredAnnotationBeanPostProcessor.class);
@@ -52,7 +52,7 @@ public class A06Application {
         //解析配置类 config   @ComponentBean @Bean import import reasource
         context.registerBean(ConfigurationClassPostProcessor.class);
 
-        context.refresh();
+        context.refresh();//执行顺序 1.BeanFactory 2.添加Bean处理器 3.初始化单例
         context.close();
 
     }
