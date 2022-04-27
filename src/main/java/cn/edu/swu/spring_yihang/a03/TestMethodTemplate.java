@@ -7,6 +7,9 @@ import java.util.List;
  * @author zeyu
  * @date 2022/04/26
  **/
+
+
+
 public class TestMethodTemplate {
     public static void main(String[] args) {
         MyBeanFactory factory = new MyBeanFactory();
