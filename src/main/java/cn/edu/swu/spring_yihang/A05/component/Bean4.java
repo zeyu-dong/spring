@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-@Controller
+
 public class Bean4 {
 
     private static final Logger log = LoggerFactory.getLogger(Bean4.class);
