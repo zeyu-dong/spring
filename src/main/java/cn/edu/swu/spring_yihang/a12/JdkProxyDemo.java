@@ -1,5 +1,6 @@
 package cn.edu.swu.spring_yihang.a12;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -9,10 +10,11 @@ import java.lang.reflect.Proxy;
  * @date 2022/04/27
  **/
 public class JdkProxyDemo {
-    public interface Foo{
+    public interface Foo {
         void foo();
     }
-    static class Target implements Foo{
+
+    static class Target implements Foo {
         @Override
         public void foo() {
             System.out.println("target foo");
@@ -21,7 +23,7 @@ public class JdkProxyDemo {
 
     //jdk只可以针对接口
     //cglib
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //target准备目标对象
         Target target = new Target();
 
@@ -34,19 +36,27 @@ public class JdkProxyDemo {
         //第三个参数是规定接口或者说方法的行为，需要提供一个invocationhandler的实现
 
         //invocationhandler匿名内部类三个参数 第一个参数：代理对象自己，第二个参数：正在执行的方法对象 第三个参数：方法传过来的实际参数
-       Foo proxy = (Foo) Proxy.newProxyInstance(loader, new Class[]{Foo.class}, (p, method, objects) -> {
+        Foo proxy = (Foo) Proxy.newProxyInstance(loader, new Class[]{Foo.class}, (p, method, objects) -> {
             System.out.println("before");
             //传统就是目标吊方法
 
-           //可以方法反射调目标
+            //可以方法反射调目标
 
-           Object o = method.invoke(target, args);
-           System.out.println("after");
-           //让代理也返回目标方法执行的结果
-           return o;
+            Object o = method.invoke(target, args);
+            System.out.println("after");
+            //让代理也返回目标方法执行的结果
+            return o;
         });
 
-       proxy.foo();
+        System.out.println(proxy.getClass());
+
+        proxy.foo();
+
+        System.in.read();
 
     }
 }
+class Test{
+
+}
+

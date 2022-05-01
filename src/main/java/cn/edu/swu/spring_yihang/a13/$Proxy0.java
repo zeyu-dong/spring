@@ -4,6 +4,7 @@ import cn.edu.swu.spring_yihang.a13.A13.Foo;
 import cn.edu.swu.spring_yihang.a13.A13.Target;
 
 import javax.swing.*;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.UndeclaredThrowableException;
@@ -14,12 +15,11 @@ import java.lang.reflect.UndeclaredThrowableException;
  **/
 public class $Proxy0 implements Foo {
 
-    private A13.InvocationHandler h;
+    private InvocationHandler h;
 
-    public $Proxy0(A13.InvocationHandler h) {
+    public $Proxy0(InvocationHandler h) {
         this.h = h;
     }
-
 
     @Override
     public void foo() {
@@ -28,7 +28,7 @@ public class $Proxy0 implements Foo {
         } catch (RuntimeException | Error e) {
             throw e;
         } catch (Throwable e) {
-            throw new UndeclaredThrowableException(e);
+            throw new UndeclaredThrowableException( e);
         }
 
     }
